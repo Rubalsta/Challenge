@@ -8,17 +8,17 @@
 - Inicializar git y crear .gitignore
 
 2. Base de Datos y Mixins
-- Implementar TimestampMixin para created_at y updated_at
-- Implementar SoftDeleteMixin para borrado lógico
-- Configurar SQLAlchemy con soporte asíncrono
-- Crear Base para los modelos
+- Implementar TimestampMixin para created_at y updated_at (Realizaddo en database/mixins.py)
+- Implementar SoftDeleteMixin para borrado lógico (Realizaddo en database/mixins.py .Marca los registros como borrados sin borrarlos)
+- Configurar SQLAlchemy con soporte asíncrono (Configurado en database/sessio.py)
+- Crear Base para los modelos (database/base.py)
 
 3. Modelos
-- Crear modelo User
-- Crear modelo Post con relación 1:N a User
-- Crear modelo Comment con relación 1:N a Post
-- Crear modelo Tag con relación N:M a Post
-- Implementar tabla intermedia para Post-Tag
+- Crear modelo User (Creado en models/user.py )
+- Crear modelo Post con relación 1:N a User (Creado en models/post con la relacion 1:N con los Users)
+- Crear modelo Comment con relación 1:N a Post (CreAdo en models/comment con la realcion 1:N con Post)
+- Crear modelo Tag con relación N:M a Post (Creado aun sin la relacion )
+- Implementar tabla intermedia para Post-Tag (Aun por hacerse)
 
 4. Migraciones con Alembic
 - Inicializar Alembic
