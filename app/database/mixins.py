@@ -1,0 +1,23 @@
+from datetime import datetime
+from sqlalchemy import Column, DateTime, Boolean
+from sqlalchemy.ext.declarative import declared_attr
+
+class TimestampMixin:
+    """
+    Class que annade created y update a los modulos
+    """
+    @declared_attr
+    def created(cls):
+        return Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    @declared_attr
+    def updated(cls):
+        return Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    
+class SoftDeleteMixin:
+    """
+    Class que annade soft delete(borrado logico) a los modulos
+    """
+    @declared_attr
+    def is_deleted(cls):
+        return Column(Boolean, default=False, nullable=False)
