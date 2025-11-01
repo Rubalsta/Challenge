@@ -37,6 +37,7 @@ ENV/
 .env
 .env.local
 
+
 # Database
 *.db
 *.sqlite3
@@ -49,8 +50,8 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Docker
-*.pid
+# Files
+*.pdf
 
 # Testing
 .coverage
