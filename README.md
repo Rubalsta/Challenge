@@ -36,11 +36,11 @@
 - Schemas de respuesta con relaciones (Ya fue hecho , se uso TYPE_CHECKING para quitar errores en el editot)
 
 6. Autenticación y Seguridad
-- Implementar hash de contraseñas
-- Crear sistema de tokens JWT
-- Endpoint de registro de usuarios
-- Endpoint de login
-- Dependencia para verificar usuarios autenticados
+- Implementar hash de contraseñas(bcrypt, ya que tuve conflicto con passlib)
+- Crear sistema de tokens JWT (listo)
+- Endpoint de registro de usuarios(funcionando y correctos, probado desde el main)
+- Endpoint de login(funcionando y correctos, probado desde el main)
+- Dependencia para verificar usuarios autenticados(comprobado desde el main)
 
 7. Routers y Endpoints
 - Router de autenticación
