@@ -12,7 +12,7 @@ class User(Base, TimestampMixin, SoftDeleteMixin):
         TimestampMixin (_type_): Annade campos de marca de tiempo.
         SoftDeleteMixin (_type_): Annade soporte para eliminación lógica.
     """
-    __table__ = "users"
+    __tablename__ = "users"
     
     id = Column(Integer, primary_key=True, index = True)
     email = Column(String, unique =  True, index=True,nullable=False)
