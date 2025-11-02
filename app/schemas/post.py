@@ -1,6 +1,11 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.schemas.user import UserResponse
+    from app.schemas.comment import CommentResponse
+    from app.schemas.tag import TagResponse
 
 class PostBase(BaseModel):
     """Campos comunes del Post
@@ -41,8 +46,7 @@ class PostInDB(PostBase):
     updated_at: datetime
     deleted_at: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True }
         
 class PostResponse(PostInDB):
     """Esquema para la respuesta del Post
@@ -50,4 +54,6 @@ class PostResponse(PostInDB):
     Args:
         PostInDB (_type_): Campos del Post en la base de datos.
     """
-    pass
+    author: Optional['UserResponse'] = None
+    comments: List['CommentResponse'] = []
+    tags: List['TagResponse'] = []

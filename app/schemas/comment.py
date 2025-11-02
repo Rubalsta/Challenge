@@ -1,6 +1,9 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.schemas.user import UserResponse
 
 class CommentBase(BaseModel):
     """Campos comunes del Comment
@@ -35,6 +38,7 @@ class CommentInDB(CommentBase):
     """
     id: int
     post_id: int
+    user_id: int
     created_at: datetime
     updated_at: datetime
     deleted_at: Optional[datetime] = None
@@ -47,4 +51,4 @@ class CommentResponse(CommentInDB):
     Args:
         CommentInDB (_type_): Campos del Comment en la base de datos.
     """
-    pass
+    author: Optional['UserResponse'] = None

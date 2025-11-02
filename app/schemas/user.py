@@ -1,6 +1,9 @@
 from pydantic import BaseModel, EmailStr, Field
-from typing import Optional
+from typing import Optional, List, TYPE_CHECKING
 from datetime import datetime
+
+if TYPE_CHECKING:
+    from app.schemas.post import PostResponse
 
 class UserBase(BaseModel):
     """Schema base para datos del usuario.
@@ -51,3 +54,11 @@ class UserResponse(UserInDB):
         UserInDB (_type_): Hereda los campos del usuario en la base de datos.
     """
     pass
+
+class UserWithPosts(UserResponse):
+    """Schema de Usuarios con Post Incluidos
+
+    Args:
+        UserResponse (_type_): Hereda los campos del usuario en la base de datos.
+    """
+    posts: List['PostResponse'] = []

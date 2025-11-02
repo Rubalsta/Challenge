@@ -1,5 +1,6 @@
 #### Eclesiastes 3:1 RV60
 
+# Tips: Usamos TYPE_CHECKING para evitar import circulares
 
 ### TAREAS PARA EL CHALLENGE
 
@@ -32,7 +33,7 @@
 - Schemas para Post con validaciones de longitud (Realizado en app/schemas/post)
 - Schemas para Comment (Listo en app/schemas/comment)
 - Schemas para Tag(app/schemas/tag)(Realizado en app/schemas/tag)
-- Schemas de respuesta con relaciones (aun falta)
+- Schemas de respuesta con relaciones (Ya fue hecho , se uso TYPE_CHECKING para quitar errores en el editot)
 
 6. Autenticación y Seguridad
 - Implementar hash de contraseñas
