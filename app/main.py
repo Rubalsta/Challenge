@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# Importar routers
+# routers
 from app.routers import auth, users, posts,comments,tags
+
+# importar middleware 
+from app.middleware.logging import ResponseTimeMiddleware
 
 app = FastAPI(
     title="Blog Random",
@@ -10,7 +13,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Configurar CORS
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
@@ -19,7 +22,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Incluir routers
+# Agrega middleware de logging de tiempo de respuesta
+app.add_middleware(ResponseTimeMiddleware)
+
+#Routers
 app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(posts.router)
