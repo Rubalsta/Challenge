@@ -23,8 +23,8 @@ def upgrade() -> None:
     op.create_table('tags',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
-    sa.Column('created', sa.DateTime(), nullable=False),
-    sa.Column('updated', sa.DateTime(), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
+    sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
     sa.Column('is_deleted', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
@@ -36,8 +36,8 @@ def upgrade() -> None:
     sa.Column('username', sa.String(), nullable=False),
     sa.Column('hashed_password', sa.String(), nullable=False),
     sa.Column('is_active', sa.Boolean(), nullable=True),
-    sa.Column('created', sa.DateTime(), nullable=False),
-    sa.Column('updated', sa.DateTime(), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
+    sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
     sa.Column('is_deleted', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
@@ -49,8 +49,8 @@ def upgrade() -> None:
     sa.Column('title', sa.String(length=200), nullable=False),
     sa.Column('content', sa.Text(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('created', sa.DateTime(), nullable=False),
-    sa.Column('updated', sa.DateTime(), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
+    sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
     sa.Column('is_deleted', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -62,8 +62,8 @@ def upgrade() -> None:
     sa.Column('content', sa.String(), nullable=False),
     sa.Column('post_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('created', sa.DateTime(), nullable=False),
-    sa.Column('updated', sa.DateTime(), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
+    sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
     sa.Column('is_deleted', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['post_id'], ['posts.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),

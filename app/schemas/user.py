@@ -20,7 +20,7 @@ class UserCreate(UserBase):
     Args:
         UserBase (_type_): Hereda los campos base del usuario.
     """
-    password: str = Field(..., min_length=6, max_length=100)
+    password: str = Field(..., min_length=8, max_length=72)
     
 class UserUpdate(BaseModel):
     """Schema para la actualización de datos del usuario.
@@ -30,7 +30,7 @@ class UserUpdate(BaseModel):
     """
     email: Optional[EmailStr] = None
     username: Optional[str] = Field(None, min_length=3, max_length=50)
-    password: Optional[str] = Field(None, min_length=6, max_length=100)
+    password: Optional[str] = Field(None, min_length=8, max_length=72)
     is_active: Optional[bool] = None
     
     

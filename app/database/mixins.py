@@ -4,14 +4,14 @@ from sqlalchemy.ext.declarative import declared_attr
 
 class TimestampMixin:
     """
-    Class que annade created y update a los modulos
+    Class que annade created_at y updated_at a los modulos
     """
     @declared_attr
-    def created(cls):
+    def created_at(cls):
         return Column(DateTime, default=datetime.utcnow, nullable=False)
 
     @declared_attr
-    def updated(cls):
+    def updated_at(cls):
         return Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
     
 class SoftDeleteMixin:
