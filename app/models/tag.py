@@ -1,6 +1,8 @@
-from sqlalchemy import Column, Integer,String
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 from app.database.base import Base
 from app.database.mixins import TimestampMixin, SoftDeleteMixin
+from app.models.associations import post_tags
 
 class Tag(Base, TimestampMixin, SoftDeleteMixin):
     """
@@ -15,3 +17,6 @@ class Tag(Base, TimestampMixin, SoftDeleteMixin):
     
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), unique=True, index=True, nullable=False)
+    
+    # Relación N:M con Post
+    posts = relationship("Post", secondary=post_tags, back_populates="tags")

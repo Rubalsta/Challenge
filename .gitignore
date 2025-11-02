@@ -53,6 +53,9 @@ Thumbs.db
 # Files
 *.pdf
 
+# Duplicate folder
+Challenge/
+
 # Testing
 .coverage
 htmlcov/

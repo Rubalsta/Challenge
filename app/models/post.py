@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Text
 from sqlalchemy.orm import relationship
 from app.database.base import Base
 from app.database.mixins import TimestampMixin, SoftDeleteMixin
+from app.models.associations import post_tags
 
 class Post(Base,TimestampMixin,SoftDeleteMixin):
     """
@@ -22,3 +23,4 @@ class Post(Base,TimestampMixin,SoftDeleteMixin):
     # Relaciones
     author = relationship("User", back_populates="posts")
     comments = relationship("Comment", back_populates="post", cascade="all, delete-orphan")
+    tags = relationship("Tag", secondary=post_tags, back_populates="posts")
