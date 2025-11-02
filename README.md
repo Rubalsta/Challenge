@@ -1,3 +1,5 @@
+#### Eclesiastes 3:1 RV60
+
 
 ### TAREAS PARA EL CHALLENGE
 
@@ -21,16 +23,16 @@
 - Implementar tabla intermedia para Post-Tag (Aun por hacerse)
 
 4. Migraciones con Alembic
-- Inicializar Alembic
-- Crear migración inicial con modelos base
+- Inicializar Alembic (Inicializado sin problemas, correcion de errores en los models)
+- Crear migración inicial con modelos base(Creada con algunas relaciones, paso a hacer la segunda con las relaciones restantes)
 - Crear segunda migración agregando nuevos campos o relaciones
 
 5. Schemas Pydantic
-- Schemas para User con validaciones de email
-- Schemas para Post con validaciones de longitud
-- Schemas para Comment
-- Schemas para Tag
-- Schemas de respuesta con relaciones
+- Schemas para User con validaciones de email (Realizado en app/schemas/user)
+- Schemas para Post con validaciones de longitud (Realizado en app/schemas/post)
+- Schemas para Comment (Listo en app/schemas/comment)
+- Schemas para Tag(app/schemas/tag)(Realizado en app/schemas/tag)
+- Schemas de respuesta con relaciones (aun falta)
 
 6. Autenticación y Seguridad
 - Implementar hash de contraseñas
