@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # Importar routers
-from app.routers import auth, users
+from app.routers import auth, users, posts,comments,tags
 
 app = FastAPI(
     title="Blog Random",
@@ -22,9 +22,12 @@ app.add_middleware(
 # Incluir routers
 app.include_router(auth.router)
 app.include_router(users.router)
+app.include_router(posts.router)
+app.include_router(comments.router)
+app.include_router(tags.router)
 
 @app.get("/")
 async def root():
-    """Abrir Documentacion"""
+    """abre documentacion directamente para mayor accesibilidad"""
     from fastapi.responses import RedirectResponse
     return RedirectResponse(url="/docs")
