@@ -42,7 +42,7 @@
 - Endpoint de login(funcionando y correctos, probado desde el main)
 - Dependencia para verificar usuarios autenticados(comprobado desde el main)
 
-7. Routers y Endpoints
+7. Routers y Endpoints (esta todo listo en app/routers)
 - Router de autenticación
 - Router de usuarios con CRUD completo
 - Router de posts con CRUD completo
@@ -51,11 +51,11 @@
 - Implementar paginación en listados
 - Implementar sistema de permisos por propietario
 
-8. Middleware
+8. Middleware(creado en la app/middleware y annadido en main)
 - Crear middleware para registrar tiempo de respuesta
 - Integrar middleware en la aplicación
 
-9. Configuración Principal
+9. Configuración Principal (esta todo listro)
 - Crear main.py con configuración de FastAPI
 - Integrar todos los routers
 - Configurar CORS si es necesario
